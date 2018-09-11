@@ -5,11 +5,6 @@
 const uint8_t stepperRotationSteps = 200;
 Stepper MotorSpear(stepperRotationSteps, 9,10,11,12);
 
-void setup() {
-    // put your setup code here, to run once:
-    MotorSpear.setSpeed(6);
-//Stepper MotorSpear = Stepper(200, 9,10,11,12);
-
 int diode[] = {11, 12, 13}; //Array med dioder
 int currentTemp = 0;
 int tempSO = 8;
@@ -20,18 +15,16 @@ MAX6675 temp(tempSCK, tempCS, tempSO);
 
 void setup() {
     // put your setup code here, to run once:
-   // MotorSpear.setSpeed(0);
+    MotorSpear.setSpeed(4);
     pinMode(13, OUTPUT); //Sætter pin 13 til output
     pinMode(12, OUTPUT); //Sætter pin 12 til output
     pinMode(11, OUTPUT); //Sætter pin 11 til output
     Serial.begin(9600);
-    delay(500);
 }
 
 void loop() {
-    // put your main code here, to run repeatedly:
+    //Her indsætter vi den kode som skal køre gentagende gange
     MotorSpear.step(1);
-  //  MotorSpear.step(60);
 
     currentTemp = temp.readCelsius();
 
