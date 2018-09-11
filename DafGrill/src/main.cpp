@@ -6,7 +6,7 @@ Stepper MotorSpear(stepperRotationSteps, 9,10,11,12);
 
 void setup() {
     // put your setup code here, to run once:
-    MotorSpear.setSpeed(100);
+    MotorSpear.setSpeed(6);
 }
 
 void loop() {
