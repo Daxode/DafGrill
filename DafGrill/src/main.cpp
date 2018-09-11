@@ -2,14 +2,12 @@
 #include <Stepper.h>
 #include "max6675.h"
 
-<<<<<<< HEAD
 const uint8_t stepperRotationSteps = 200;
 Stepper MotorSpear(stepperRotationSteps, 9,10,11,12);
 
 void setup() {
     // put your setup code here, to run once:
     MotorSpear.setSpeed(6);
-=======
 //Stepper MotorSpear = Stepper(200, 9,10,11,12);
 
 int diode[] = {11, 12, 13}; //Array med dioder
@@ -28,14 +26,11 @@ void setup() {
     pinMode(11, OUTPUT); //Sætter pin 11 til output
     Serial.begin(9600);
     delay(500);
->>>>>>> 62085d96555e196ea26efe0f877a99cbab3ebb75
 }
 
 void loop() {
     // put your main code here, to run repeatedly:
-<<<<<<< HEAD
     MotorSpear.step(1);
-=======
   //  MotorSpear.step(60);
 
     currentTemp = temp.readCelsius();
@@ -55,5 +50,4 @@ void loop() {
         digitalWrite(diode[1], LOW);
         digitalWrite(diode[2], HIGH);
     }
->>>>>>> 62085d96555e196ea26efe0f877a99cbab3ebb75
 }
