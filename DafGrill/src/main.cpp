@@ -3,23 +3,19 @@
 #include "max6675.h"
 
 const uint8_t stepperRotationSteps = 200;
-Stepper MotorSpear(stepperRotationSteps, 9,10,11,12);
+enum spearMotorPins {A = 9, B, C, D};
+Stepper MotorSpear(stepperRotationSteps, spearMotorPins::A,spearMotorPins::B, spearMotorPins::C,spearMotorPins::D);
 
 int diode[] = {11, 12, 13}; //Array med dioder
-int currentTemp = 0;
-int tempSO = 8;
-int tempCS = 7;
-int tempSCK = 6;
+enum tempPins {SCK = 6, CS, SO};
 
-MAX6675 temp(tempSCK, tempCS, tempSO);
+int currentTemp = 0;
+
+MAX6675 temp(tempPins::SCK, tempPins::CS, tempPins::SO);
 
 void setup() {
     // put your setup code here, to run once:
     MotorSpear.setSpeed(4);
-    pinMode(13, OUTPUT); //Sætter pin 13 til output
-    pinMode(12, OUTPUT); //Sætter pin 12 til output
-    pinMode(11, OUTPUT); //Sætter pin 11 til output
-    Serial.begin(9600);
 }
 
 void loop() {
